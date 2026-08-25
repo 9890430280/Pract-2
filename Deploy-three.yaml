@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: deploythree
+    labels:
+        name: deploythree-app
+spec:
+    replicas: 2
+    selectors:
+        matchLabel:
+            name: myapp-t
+    template:
+        spec:
+            metadata:
+                labels:
+                    name: myapp-t
+            spec:
+                containers:
+                  - name: java3con
+                    image: ghogalekunal/java3-img:latest
+                    stdin: true
+                    tty: true
