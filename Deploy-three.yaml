@@ -6,17 +6,16 @@ metadata:
         name: deploythree-app
 spec:
     replicas: 2
-    selectors:
-        matchLabel:
+    selector:
+        matchLabels:
             name: myapp-t
     template:
+        metadata:
+            labels:
+                name: myapp-t
         spec:
-            metadata:
-                labels:
-                    name: myapp-t
-            spec:
-                containers:
-                  - name: java3con
-                    image: ghogalekunal/java3-img:latest
-                    stdin: true
-                    tty: true
+            containers:
+              - name: java3con
+                image: ghogalekunal/java3-img:latest
+                stdin: true
+                tty: true
